@@ -1,2 +1,2 @@
-cat .gitignore
+$ cat .gitignore
 *.docx
