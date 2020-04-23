@@ -7,6 +7,10 @@ public class KTP40 {
 
     public static void main(String[] args) {
         double[] arr = new double[]{16, 18, 30, 1.8};
+        System.out.println(trouble(1222345,12345));
+        /*int[] ints = trouble(4511,234);
+        for (int i = 0; i < ints.length; i++)
+            System.out.print(ints[i] + " ");*/
       //  String a = "hellow my name is Bessie and this is my eassay";
        // System.out.println(text(10,7,a));
        // System.out.println(split("()()()"));
@@ -193,5 +197,67 @@ public class KTP40 {
                 if(b.toLowerCase().contains(s1)==false) return false;
         }
         return true;
+    }
+
+    public static boolean trouble(long a,long b)
+    {
+        int k=0,l=0;
+        long a1=a;
+        long b1=b;
+        while (a1>0)
+        {
+            a1=a1/10;
+            l++;
+        }
+        while (b1>0)
+        {
+            b1=b1/10;
+            k++;
+        }
+
+        long[] arr = new long[l];
+        long[] arr2 = new long[k];
+
+        for (int i=0;i<l;i++)
+        {
+            arr[i]=a%10;
+            a=a/10;
+        }
+        for (int j=0;j<k;j++)
+        {
+            arr2[j]=b%10;
+            b=b/10;
+        }
+        long count=0,count1=0,max=0,max1=0,num=0;
+       for (int i1 = 0; i1 < arr.length;i1++)
+       {
+           boolean fl = false,fl1=false;
+           num=arr[i1];
+          for (int ar1 = 0; ar1 < arr.length;ar1++)
+          {
+              if (arr[ar1]==num)
+              {
+                  count++;
+                   if (count==3) {
+                       fl = true;
+                       break;
+                   }
+              } else count = 0;
+          }
+
+          for (int ar2 = 0; ar2 < arr2.length;ar2++)
+          {
+              if (arr2[ar2]==num)
+              {
+                  count1++;
+                  if (count1==2) {
+                      fl1 = true;
+                      break;
+                  }
+              } else count1 = 0;
+          }
+           if (fl==true&&fl1==true) return true;
+       }
+       return false;
     }
 }

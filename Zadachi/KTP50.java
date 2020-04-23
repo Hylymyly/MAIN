@@ -25,6 +25,7 @@ public class KTP50 {
         //System.out.println(canMove("Bishop","A7","G1"));
         //System.out.println(getSha256Hash("password123"));
         //System.out.println(correctTitle("jOn SnoW, kINg IN thE noRth."));
+        System.out.println(hexLattice(37));
     }
 
     public static int[] encrypt(String s) {
@@ -339,5 +340,46 @@ public class KTP50 {
             else line = line + word +str.substring(1)+" ";
         }
         return line;
+    }
+
+    public static String hexLattice(int a)
+    {
+        String line = "";
+       if (a%6!=1) return "Invalid";
+        int cols = 1;
+        int count=1,f=1,p=1;
+        while(cols<a)
+        {
+            count++;//с половиной
+            cols = count*(count-1)*3+1;
+            f=f+2;
+        }
+       // return f/2;
+       for (int i=1; i<=f/2+1;i++)
+       {
+           for (int i2=1; i2<=f/2-i+1;i2++)
+           {
+               line+=" ";
+           }
+           for (int j=1; j<=f/2+i;j++)
+           {
+               line+="o"+" ";
+           }
+           line+="\r\n";
+       }
+        for (int i=f/2+2; i<=f;i++)
+        {
+            for (int j2=1; j2<p+1;j2++)
+            {
+                line+=" ";
+            }
+            for (int j=1; j<=f-p;j++)
+            {
+                line+="o"+" ";
+            }
+            p++;
+            line+="\r\n";
+        }
+       return line;
     }
 }
