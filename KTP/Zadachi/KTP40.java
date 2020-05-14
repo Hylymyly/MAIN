@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class KTP40 {
 
@@ -21,6 +18,7 @@ public class KTP40 {
        //System.out.println(bugger(10));
         //System.out.println(toStarShorthand("abbcccccc"));
         //System.out.println(doesRhyme("Sam I AoM!","Green eggs and ham."));
+        //System.out.println(countUniqueBooks("$AZYWABBCATTTA",'A'));
     }
 
     public static String text(int N,int L,String a)
@@ -259,5 +257,28 @@ public class KTP40 {
            if (fl==true&&fl1==true) return true;
        }
        return false;
+    }
+
+    public static int countUniqueBooks(String str, char let)
+    {
+        Map<Character,Integer> val = new HashMap<>();
+        boolean flag = true;
+        for (int i = 0; i < str.length();i++)
+        {
+            if (str.charAt(i) == let && flag==true)
+            {
+                i++;
+                while (str.charAt(i) != let)
+                {
+                    Integer a = val.get(str.charAt(i));
+                    if(a==null) val.put(str.charAt(i),1);
+                    else val.put(str.charAt(i),++a);
+                    i++;
+                }
+                flag = false;
+            }
+            if (str.charAt(i)==let) flag = true;
+        }
+        return val.size();
     }
 }
