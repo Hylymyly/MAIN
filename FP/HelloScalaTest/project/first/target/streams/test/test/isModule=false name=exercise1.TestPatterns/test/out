@@ -1,0 +1,16 @@
+[0m[[0m[0minfo[0m] [0m[0m[32mTestPatterns:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testIntToString: 1[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testIntToString: 2[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testIntToString: 3[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testIntToString: 4[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testIsMaxAndMoritz: max[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testIsMaxAndMoritz: Max[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testIsMaxAndMoritz: moritz[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testIsMaxAndMoritz: morit[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testIsEven: 1[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testIsEven: 3[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testWinsA: Rock, Rock[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testWinsA: Paper, Rock[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testWinsA: Scissor, Rock[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testExtractMammalWeight:KIT and Plants[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testUpdateFood: Fish and Plants[0m[0m

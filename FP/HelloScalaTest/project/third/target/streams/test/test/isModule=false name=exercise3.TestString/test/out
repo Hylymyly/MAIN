@@ -1,0 +1,6 @@
+[0m[[0m[0minfo[0m] [0m[0m[32mTestString:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testUppercase[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testInterpolations[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testComputation[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testTakeTwo: 2[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testTakeTwo: 5[0m[0m

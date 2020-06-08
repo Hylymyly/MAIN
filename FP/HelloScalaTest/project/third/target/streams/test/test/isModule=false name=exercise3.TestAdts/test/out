@@ -1,0 +1,7 @@
+[0m[[0m[0minfo[0m] [0m[0m[32mTestAdts:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testGetNth [0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testDouble: 5[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testIsEven: 4[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testIsEven: 7[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testSafeDivide: 5 на 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testGoodOldJava: 2153[0m[0m

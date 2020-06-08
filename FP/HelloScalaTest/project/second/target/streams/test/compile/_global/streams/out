@@ -1,0 +1,10 @@
+[0m[[0m[31merror[0m] [0m[0mC:\Users\yaros\cd-g\src\main\scala\HelloScalaTest\project\second\src\test\scala\TestRecursiveFunc.scala:10:44: not found: value a[0m
+[0m[[0m[31merror[0m] [0m[0m    val p = RecursiveFunctions.testReverse(a)[0m
+[0m[[0m[31merror[0m] [0m[0m                                           ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\yaros\cd-g\src\main\scala\HelloScalaTest\project\second\src\test\scala\TestRecursiveFunc.scala:15:40: not found: value a[0m
+[0m[[0m[31merror[0m] [0m[0m    val p = RecursiveFunctions.testMap(a,sw)[0m
+[0m[[0m[31merror[0m] [0m[0m                                       ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\yaros\cd-g\src\main\scala\HelloScalaTest\project\second\src\test\scala\TestRecursiveFunc.scala:20:43: not found: value a[0m
+[0m[[0m[31merror[0m] [0m[0m    val p = RecursiveFunctions.testAppend(a,b)[0m
+[0m[[0m[31merror[0m] [0m[0m                                          ^[0m
+[0m[[0m[31merror[0m] [0m[0mthree errors found[0m

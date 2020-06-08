@@ -1,0 +1,7 @@
+[0m[[0m[31merror[0m] [0m[0mC:\Users\yaros\cd-g\src\main\scala\HelloScalaTest\src\test\scala\simpletest\HelloTests.scala:7:13: not found: type Person[0m
+[0m[[0m[31merror[0m] [0m[0mval p = new Person("Barney Rubble")[0m
+[0m[[0m[31merror[0m] [0m[0m            ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\yaros\cd-g\src\main\scala\HelloScalaTest\src\test\scala\simpletest\HelloTests.scala:12:12: not found: type Person[0m
+[0m[[0m[31merror[0m] [0m[0mval p =new Person("Chad Johnson")[0m
+[0m[[0m[31merror[0m] [0m[0m           ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m

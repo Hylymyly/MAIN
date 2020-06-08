@@ -1,0 +1,5 @@
+[0m[[0m[0minfo[0m] [0m[0m[32mTestRecursiveFunc:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testReverse: 1 2 3 4 [0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testMap: 1 2 3 4 [0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testAppend: 1 2 3 4 and 4 3 2 1 [0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testFlatMap:  [4,2] and [5,4] [0m[0m

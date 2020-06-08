@@ -1,0 +1,16 @@
+[0m[[0m[31merror[0m] [0m[0mC:\Users\yaros\cd-g\src\main\scala\HelloScalaTest\project\third\src\test\scala\TestString.scala:4:3: not found: value test[0m
+[0m[[0m[31merror[0m] [0m[0m  test("testUppercase"){[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\yaros\cd-g\src\main\scala\HelloScalaTest\project\third\src\test\scala\TestString.scala:8:3: not found: value test[0m
+[0m[[0m[31merror[0m] [0m[0m  test("testInterpolations"){[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\yaros\cd-g\src\main\scala\HelloScalaTest\project\third\src\test\scala\TestString.scala:12:3: not found: value test[0m
+[0m[[0m[31merror[0m] [0m[0m  test("testComputation"){[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\yaros\cd-g\src\main\scala\HelloScalaTest\project\third\src\test\scala\TestString.scala:16:3: not found: value test[0m
+[0m[[0m[31merror[0m] [0m[0m  test("testTakeTwo: 2"){[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\yaros\cd-g\src\main\scala\HelloScalaTest\project\third\src\test\scala\TestString.scala:20:3: not found: value test[0m
+[0m[[0m[31merror[0m] [0m[0m  test("testTakeTwo: 4"){[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
+[0m[[0m[31merror[0m] [0m[0m5 errors found[0m

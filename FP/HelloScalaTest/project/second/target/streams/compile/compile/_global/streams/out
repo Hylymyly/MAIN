@@ -1,0 +1,9 @@
+[0m[[0m[31merror[0m] [0m[0mC:\Users\yaros\cd-g\src\main\scala\HelloScalaTest\project\second\src\main\scala\Compositions.scala:22:18: value flatMap is not a member of exercise2.Option[A][0m
+[0m[[0m[31merror[0m] [0m[0mdid you mean flatmap?[0m
+[0m[[0m[31merror[0m] [0m[0m        first <- v[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\yaros\cd-g\src\main\scala\HelloScalaTest\project\second\src\main\scala\Compositions.scala:23:20: value flatMap is not a member of exercise2.Option[B][0m
+[0m[[0m[31merror[0m] [0m[0mdid you mean flatmap?[0m
+[0m[[0m[31merror[0m] [0m[0m        second <- f(first)[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
