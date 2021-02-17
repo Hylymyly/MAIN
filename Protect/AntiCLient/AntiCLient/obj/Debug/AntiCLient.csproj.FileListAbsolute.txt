@@ -1,0 +1,10 @@
+C:\Users\yaros\source\repos\AntiCLient\AntiCLient\bin\Debug\AntiCLient.exe.config
+C:\Users\yaros\source\repos\AntiCLient\AntiCLient\bin\Debug\AntiCLient.exe
+C:\Users\yaros\source\repos\AntiCLient\AntiCLient\bin\Debug\AntiCLient.pdb
+C:\Users\yaros\source\repos\AntiCLient\AntiCLient\obj\Debug\AntiCLient.csprojAssemblyReference.cache
+C:\Users\yaros\source\repos\AntiCLient\AntiCLient\obj\Debug\AntiCLient.Form1.resources
+C:\Users\yaros\source\repos\AntiCLient\AntiCLient\obj\Debug\AntiCLient.Properties.Resources.resources
+C:\Users\yaros\source\repos\AntiCLient\AntiCLient\obj\Debug\AntiCLient.csproj.GenerateResource.cache
+C:\Users\yaros\source\repos\AntiCLient\AntiCLient\obj\Debug\AntiCLient.csproj.CoreCompileInputs.cache
+C:\Users\yaros\source\repos\AntiCLient\AntiCLient\obj\Debug\AntiCLient.exe
+C:\Users\yaros\source\repos\AntiCLient\AntiCLient\obj\Debug\AntiCLient.pdb

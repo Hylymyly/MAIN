@@ -1,0 +1,7 @@
+C:\Users\yaros\source\repos\AntiServer\AntiServer\bin\Debug\AntiServer.exe.config
+C:\Users\yaros\source\repos\AntiServer\AntiServer\bin\Debug\AntiServer.exe
+C:\Users\yaros\source\repos\AntiServer\AntiServer\bin\Debug\AntiServer.pdb
+C:\Users\yaros\source\repos\AntiServer\AntiServer\obj\Debug\AntiServer.csprojAssemblyReference.cache
+C:\Users\yaros\source\repos\AntiServer\AntiServer\obj\Debug\AntiServer.csproj.CoreCompileInputs.cache
+C:\Users\yaros\source\repos\AntiServer\AntiServer\obj\Debug\AntiServer.exe
+C:\Users\yaros\source\repos\AntiServer\AntiServer\obj\Debug\AntiServer.pdb
