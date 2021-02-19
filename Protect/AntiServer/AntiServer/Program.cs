@@ -59,16 +59,16 @@ namespace AntiServer
                     Console.WriteLine("\r\n*Клиент подключенный по порту №10*");
                     string strvod = streamReader.ReadLine();
                     var text = strvod.Split(' ');
-                    string path = text[0];
-                    string code = text[1];
-                    System.IO.StreamReader sr = new System.IO.StreamReader(path);
+                    string pathKatalog = text[0];
+                    string pathFile = text[1];
+                    string code = text[2];
+                    System.IO.StreamReader sr = new System.IO.StreamReader(pathFile);
                     Console.WriteLine(sr.ReadToEnd());
                     Console.WriteLine("Проверка");
                     Thread.Sleep(1000);
 
-
-                    string str = " проверено "+ path + " rhz "+ code;
-
+                    string str = "Проверено"+" "+pathKatalog+" "+pathFile+" "+code;
+                    
                     streamWriter.WriteLine(str);
                     streamWriter.Flush();
                     networkStream.Close();

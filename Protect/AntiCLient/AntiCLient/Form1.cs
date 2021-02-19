@@ -53,6 +53,7 @@ namespace AntiCLient
 
         private void Listeners()
         {
+            string txt, pathKatalog, pathFile, code, res;
             tcpListener.Start();
             Socket socketForClient = tcpListener.AcceptSocket();
             if (socketForClient.Connected)
@@ -61,21 +62,65 @@ namespace AntiCLient
                 NetworkStream networkStream = new NetworkStream(socketForClient);
                 System.IO.StreamWriter streamWriter = new System.IO.StreamWriter(networkStream);
                 System.IO.StreamReader streamReader = new System.IO.StreamReader(networkStream);
-                string str = "C:\\Users\\yaros\\Desktop\\txt.txt 001";
+                string str = "C:\\Users\\yaros C:\\Users\\yaros\\Desktop\\txt.txt 001";
                 streamWriter.WriteLine(str);
                 streamWriter.Flush();
                 Thread.Sleep(1000);
                 while (i != 1)
                     {
-                        i++;
-                        string theString = streamReader.ReadLine();
-                        label3.Text = "Сообщение клиента: " + socketForClient.RemoteEndPoint + " " + theString;
+                    i++;
+                    string theString = streamReader.ReadLine();
+                    var text = theString.Split(' ');
+                    txt = text[0];
+                    pathKatalog = text[1];
+                    pathFile = text[2];
+                    code = text[3];
+                    switch (code)
+                    {
+                        case "000":
+                            label6.Text = "Код функции: " + code + " выполнено: " + StartScan();
+                            break;
+                        case "001":
+                            label6.Text = "Код функции: " + code + " выполнено: " + StopScan();
+                            break;
+                        case "002":
+                            label6.Text = "Код функции: " + code + " выполнено: " + MoveToQ();
+                            break;
+                        case "003":
+                            label6.Text = "Код функции: " + code + " выполнено: " + RemoveFile();
+                            break;
                     }
+                    label3.Text = "Сообщение клиента: " + socketForClient.RemoteEndPoint + " " + txt;
+                    label4.Text = "Путь каталога: " + pathKatalog;
+                    label5.Text = "Путь файла: " + pathFile;
+                    }
+                
                 streamReader.Close();
                 networkStream.Close();
                 streamWriter.Close();
             }
             socketForClient.Close();
+        }
+
+        private string StartScan()
+        {
+            string res = "Отсканированно";
+            return res;
+        }
+        private string StopScan()
+        {
+            string res = "Сканирование завершено";
+            return res;
+        }
+        private string MoveToQ()
+        {
+            string res = "Карантин";
+            return res;
+        }
+        private string RemoveFile()
+        {
+            string res = "Удален";
+            return res;
         }
     }
 }
