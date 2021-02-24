@@ -74,22 +74,8 @@ namespace AntiCLient
                     txt = text[0];
                     pathKatalog = text[1];
                     pathFile = text[2];
-                    code = text[3];
-                    switch (code)
-                    {
-                        case "000":
-                            label6.Text = "Код функции: " + code + " выполнено: " + StartScan();
-                            break;
-                        case "001":
-                            label6.Text = "Код функции: " + code + " выполнено: " + StopScan();
-                            break;
-                        case "002":
-                            label6.Text = "Код функции: " + code + " выполнено: " + MoveToQ();
-                            break;
-                        case "003":
-                            label6.Text = "Код функции: " + code + " выполнено: " + RemoveFile();
-                            break;
-                    }
+                    code = text[3];                   
+                    label6.Text = "Код функции: " + "001" + " выполнено: " + code;
                     label3.Text = "Сообщение клиента: " + socketForClient.RemoteEndPoint + " " + txt;
                     label4.Text = "Путь каталога: " + pathKatalog;
                     label5.Text = "Путь файла: " + pathFile;
@@ -100,27 +86,6 @@ namespace AntiCLient
                 streamWriter.Close();
             }
             socketForClient.Close();
-        }
-
-        private string StartScan()
-        {
-            string res = "Отсканированно";
-            return res;
-        }
-        private string StopScan()
-        {
-            string res = "Сканирование завершено";
-            return res;
-        }
-        private string MoveToQ()
-        {
-            string res = "Карантин";
-            return res;
-        }
-        private string RemoveFile()
-        {
-            string res = "Удален";
-            return res;
         }
     }
 }

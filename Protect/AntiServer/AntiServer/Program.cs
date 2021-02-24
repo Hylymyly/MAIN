@@ -62,12 +62,13 @@ namespace AntiServer
                     string pathKatalog = text[0];
                     string pathFile = text[1];
                     string code = text[2];
+                    string result;
                     System.IO.StreamReader sr = new System.IO.StreamReader(pathFile);
                     Console.WriteLine(sr.ReadToEnd());
                     Console.WriteLine("Проверка");
                     Thread.Sleep(1000);
-
-                    string str = "Проверено"+" "+pathKatalog+" "+pathFile+" "+code;
+                    
+                    string str = "Проверено" + " " + pathKatalog + " " + pathFile + " " + SwitchedC(code); ;
                     
                     streamWriter.WriteLine(str);
                     streamWriter.Flush();
@@ -82,6 +83,46 @@ namespace AntiServer
                 }
             }
         }
-       
+        static string SwitchedC(string str)
+        {
+            string result = "";
+            switch (str)
+            {
+                case "000":
+                    result = StartScan();
+                    break;
+                case "001":
+                    result = StopScan();
+                    break;
+                case "002":
+                    result = MoveToQ();
+                    break;
+                case "003":
+                    result = RemoveFile();
+                    break;
+            }
+            return result;
+        }
+        static string StartScan()
+        {
+            string res = "Отсканированно";
+            return res;
+        }
+        static string StopScan()
+        {
+            string res = "Сканиbрование завершено";
+            return res;
+        }
+        static string MoveToQ()
+        {
+            string res = "Карантин";
+            return res;
+        }
+        static string RemoveFile()
+        {
+            string res = "Удален";
+            return res;
+        }
+
     }
 }
