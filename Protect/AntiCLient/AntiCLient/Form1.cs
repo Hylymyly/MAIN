@@ -62,7 +62,7 @@ namespace AntiCLient
                 NetworkStream networkStream = new NetworkStream(socketForClient);
                 System.IO.StreamWriter streamWriter = new System.IO.StreamWriter(networkStream);
                 System.IO.StreamReader streamReader = new System.IO.StreamReader(networkStream);
-                string str = "C:\\Users\\yaros C:\\Users\\yaros\\Desktop\\txt.txt 001";
+                string str = "C:\\Users\\yaros C:\\Users\\yaros\\Desktop\\txt.txt 000";
                 streamWriter.WriteLine(str);
                 streamWriter.Flush();
                 Thread.Sleep(1000);
@@ -70,6 +70,7 @@ namespace AntiCLient
                     {
                     i++;
                     string theString = streamReader.ReadLine();
+                    //string theString = "1 1 1 1";
                     var text = theString.Split(' ');
                     txt = text[0];
                     pathKatalog = text[1];
