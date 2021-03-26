@@ -9,6 +9,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
+using Microsoft.Data.Sqlite;
 
 
 namespace AntiServer
@@ -70,8 +71,38 @@ namespace AntiServer
             public long PEHeaderAddress;
         }
     }
+    static class MonitoringO
+    {
+        public static string monitor = "";
+        public static void MonitoringON(object obj)
+        {
+            var path = (string)obj;
+            var watcher = new FileSystemWatcher(path);
+
+            watcher.NotifyFilter = NotifyFilters.LastWrite;
+
+            watcher.Changed += OnChanged;
+
+            watcher.IncludeSubdirectories = true;
+            watcher.EnableRaisingEvents = true;
+        }
+
+        public static void OnChanged(object sender, FileSystemEventArgs e)
+        {
+            if (e.ChangeType != WatcherChangeTypes.Changed)
+            {
+                return;
+            }
+            monitor = $"{e.FullPath}";
+        }
+    }
     static class Program
     {
+        static List<string> list = new List<string>();
+        static string resultofmonitoring = "";
+        static StreamWriter streamWriter;
+        static StreamReader streamReader;
+        static string pathKatalog = "";
         #region dll
         [DllImport("kernel32.dll")]
         static extern bool ReleaseMutex(IntPtr hMutex);
@@ -114,26 +145,90 @@ namespace AntiServer
                     }
 
                     NetworkStream networkStream = socketForServer.GetStream();
-                    System.IO.StreamWriter streamWriter = new System.IO.StreamWriter(networkStream);
-                    System.IO.StreamReader streamReader = new System.IO.StreamReader(networkStream);
+                    streamWriter = new StreamWriter(networkStream);
+                    streamReader = new StreamReader(networkStream);
                     Console.WriteLine("\r\n*Клиент подключенный по порту №10*");
+                    Console.WriteLine("************************************");
+
+                    Console.WriteLine("************************************");
+
                     string strvod = streamReader.ReadLine();
                     var text = strvod.Split(' ');
-                    string pathKatalog = text[0];
-                    string pathFile = text[1];
-                    string code = text[2];
-                    string result;
-                    System.IO.StreamReader sr = new System.IO.StreamReader(pathFile);
-                    Console.WriteLine(sr.ReadToEnd());
-                    Console.WriteLine("Проверка");
-                    Thread.Sleep(1000);
-                    
-                    string str = "Проверено" + " " + pathKatalog + " " + pathFile + " " + SwitchedC(code); ;
-                    
-                    streamWriter.WriteLine(str);
-                    streamWriter.Flush();
-                    networkStream.Close();
-                    Thread.Sleep(1000);
+                    pathKatalog = text[0];
+                    string code = text[1];
+
+                    if (code == "000")
+                    {
+                        //Результат сканирования
+                        string paths = SwitchedC(code);
+                        string paths2 = paths;
+                        ConverttoBase(paths2);
+                        streamWriter.WriteLine(paths);
+                        streamWriter.Flush();
+                        paths = "";
+                        //Стринга с вирусами
+                        streamWriter.WriteLine("String of viruses");
+                        streamWriter.Flush();
+
+                        //Карантин
+                        string answerBox = streamReader.ReadLine();
+                        if (answerBox == "Yes")
+                            Console.WriteLine("Перемещен в карантин");
+                        else if (answerBox == "No")
+                            Console.WriteLine("Удален");
+                        /*Метод для удаления опеределенного файла*/
+                        networkStream.Close();
+                    }
+                    else if (code == "004")
+                    {
+                        SwitchedC(code);
+                        MonitoringThread();
+
+                        string answerBox = streamReader.ReadLine();
+                        if (answerBox == "Yes")
+                            Console.WriteLine("Провести проверку");
+                        else if (answerBox == "No")
+                            Console.WriteLine("Не проводить проверку");
+                        Console.WriteLine(resultofmonitoring);
+                        networkStream.Close();
+                    }
+                    else if (code == "002")
+                    {
+                        string resScun = StartScanFile(pathKatalog);
+
+                        streamWriter.WriteLine(resScun);
+                        streamWriter.Flush();
+                        string answerBox = streamReader.ReadLine();
+                        if (answerBox == "Yes")
+                            Console.WriteLine("Перемещен в карантин");
+                        else if (answerBox == "No")
+                            Console.WriteLine("Удален");
+                        networkStream.Close();
+                    }
+                    else if (code == "003")
+                    {
+                        //Результат сканирования
+                        string paths = SwitchedC("000");
+                        string paths2 = paths;
+                        ConverttoBase(paths2);
+                        streamWriter.WriteLine(paths);
+                        streamWriter.Flush();
+                        paths = "";
+                        //Стринга с вирусами
+                        streamWriter.WriteLine("String of viruses");
+                        streamWriter.Flush();
+
+                        //Карантин
+                        string answerBox = streamReader.ReadLine();
+                        if (answerBox == "Yes")
+                            Console.WriteLine("Перемещен в карантин");
+                        else if (answerBox == "No")
+                            Console.WriteLine("Удален");
+                        /*Метод для удаления опеределенного файла*/
+                        networkStream.Close();
+                    }
+
+                    Thread.Sleep(500);
                     Console.WriteLine("Соединение разорвано\r\n");
 
                 }
@@ -143,13 +238,15 @@ namespace AntiServer
                 }
             }
         }
+
         static string SwitchedC(string str)
         {
             string result = "";
             switch (str)
             {
                 case "000":
-                    Console.WriteLine(result = StartScan());
+                    result = StartScan();
+                    Console.WriteLine(result);
                     break;
                 case "001":
                     result = StopScan();
@@ -160,19 +257,37 @@ namespace AntiServer
                 case "003":
                     result = RemoveFile();
                     break;
+                case "004":
+                    string paths = "";
+                    //Thread thread1 = new Thread(MonitoringO.MonitoringON);
+                    SqliteConnection sqlite = new SqliteConnection("Data Source=C:\\BaseData\\BasDate.db");
+                    sqlite.Open();
+                    var command = sqlite.CreateCommand();
+                    command.CommandText = @"SELECT * FROM BaseText";
+                    using (var reader = command.ExecuteReader())
+                    {
+                        for (int i = 0; reader.Read(); i++)
+                        {
+                            list.Add(reader.GetString(1));
+                        }
+                    }
+                    //Проверка файла на вирус
+                    break;
             }
             return result;
         }
-        static string StartScan()
+        static string FilesPE()
         {
             string res = "";
 
-            string[] stri1 = Directory.GetFiles(@"C:\Users\yaros\Desktop\Работы\Example", "*.*", SearchOption.AllDirectories);
+            string[] stri1 = Directory.GetFiles(pathKatalog, "*.*", SearchOption.AllDirectories);
             foreach (string paths in stri1)
             {
+                Console.WriteLine(paths);
                 if (paths.Substring(paths.LastIndexOf(".") + 1) == "zip")
                     PEFiles.ZipUnPacked(paths);
-                res += paths + ": " + PEFiles.IsPEFile(paths) + "\r\n";
+                if (PEFiles.IsPEFile(paths) == true)
+                    res += paths + " ";
             }
             string[] stri = Directory.GetFiles(@"C:\Users\yaros\Desktop\Работы\Example2", "*.*", SearchOption.AllDirectories);
             foreach (string paths1 in stri)
@@ -185,10 +300,69 @@ namespace AntiServer
             string[] stri2 = Directory.GetFiles(@"C:\Users\yaros\Desktop\Работы\Example2", "*.*", SearchOption.AllDirectories);
             foreach (string paths2 in stri2)
             {
-                res += paths2 + ": " + PEFiles.IsPEFile(paths2) + "\r\n";
+                if (PEFiles.IsPEFile(paths2) == true)
+                    res += paths2 + " ";
                 System.IO.File.Delete(paths2);
             }
             return res;
+        }
+        static void MonitoringThread()
+        {
+            do
+            {
+                for (int k = 0; k < list.Count; k++)
+                {
+                    MonitoringO.MonitoringON(list[k]);
+                    resultofmonitoring = MonitoringO.monitor;
+                    //Console.WriteLine(resultofmonitoring);
+                    if (resultofmonitoring != "")
+                    {
+                        streamWriter.WriteLine(resultofmonitoring);
+                        streamWriter.Flush();
+                    }
+                }
+            } while (resultofmonitoring == "");
+        }
+        static string StartScan()
+        {
+            return FilesPE();//Все пути PE файлов
+            //Метод для обнаружения вирусов
+            //Обнаружил вирус, записал путь, вывел на клиенте messageBox c путем "Yes","Nо", если да - в карантин, нет - пропустить
+        }
+        static string StartScanFile(string path)
+        {
+            if (PEFiles.IsPEFile(path) == true)
+                Console.WriteLine("Сканирование файла");
+            //Сканирование файла, если найден вирус - отправить данные об этом на клиент
+            return "Yes";
+
+        }
+        static void ConverttoBase(string paths2)
+        {
+            var text2 = paths2.Split(' ');
+            SqliteConnection sqlite = new SqliteConnection("Data Source=C:\\BaseData\\BasDate.db");
+            sqlite.Open();
+            var command = sqlite.CreateCommand();
+            command.CommandText = @"DELETE FROM FilesPE";
+            command.ExecuteNonQuery();
+            command = sqlite.CreateCommand();
+            foreach (string path in text2)
+            {
+                if (path != "")
+                {
+                    command.CommandText = @"INSERT INTO FilesPE" + "(paths)" + "VALUES('" + path + "')";
+                    command.ExecuteNonQuery();
+                }
+            }
+            command = sqlite.CreateCommand();
+            command.CommandText = @"update FilesPE
+                   set id = (select count(*)
+                   from FilesPE s2
+                   where s2.id < FilesPE.id or
+                         s2.id = FilesPE.id and s2.id <= FilesPE.id
+                  )";
+            command.ExecuteNonQuery();
+            sqlite.Close();
         }
         static string StopScan()
         {
@@ -205,6 +379,5 @@ namespace AntiServer
             string res = "Удален";
             return res;
         }
-
     }
 }
