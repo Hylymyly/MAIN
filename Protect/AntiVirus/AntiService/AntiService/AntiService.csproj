@@ -106,9 +106,6 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml" />
-    <Reference Include="TextLibrary">
-      <HintPath>..\..\TextLibrary\TextLibrary\bin\Debug\TextLibrary.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ProjectInstaller.cs">

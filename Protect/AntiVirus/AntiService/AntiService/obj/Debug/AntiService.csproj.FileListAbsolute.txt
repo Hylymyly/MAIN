@@ -53,5 +53,3 @@ C:\Users\yaros\source\repos\AntiService\AntiService\obj\Debug\AntiService.exe
 C:\Users\yaros\source\repos\AntiService\AntiService\obj\Debug\AntiService.pdb
 C:\Users\yaros\source\repos\AntiService\AntiService\obj\Debug\AntiService.ProjectInstaller.resources
 C:\Users\yaros\source\repos\AntiService\AntiService\obj\Debug\AntiService.csproj.GenerateResource.cache
-C:\Users\yaros\source\repos\AntiService\AntiService\bin\Debug\TextLibrary.dll
-C:\Users\yaros\source\repos\AntiService\AntiService\bin\Debug\TextLibrary.pdb

@@ -64,7 +64,6 @@ namespace AntiService
                                 //Console.WriteLine("Ожидание подключение...");
                                 Thread.Sleep(2000);
                                 socketForServer = new TcpClient("localHost", 10);
-                                File.AppendAllText(@"C:\Users\yaros\Desktop\txt.txt", Application.StartupPath + @"\Example2");
                             }
                             catch
                             {
