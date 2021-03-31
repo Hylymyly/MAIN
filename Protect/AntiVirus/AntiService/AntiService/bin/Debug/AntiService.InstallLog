@@ -1,0 +1,26 @@
+﻿Выполняется установка сборки 'C:\Users\yaros\source\repos\AntiService\AntiService\bin\Debug\AntiService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = C:\Users\yaros\source\repos\AntiService\AntiService\bin\Debug\AntiService.InstallLog
+   assemblypath = C:\Users\yaros\source\repos\AntiService\AntiService\bin\Debug\AntiService.exe
+Отсутствуют общие программы установки с атрибутом RunInstallerAttribute.Yes в сборке C:\Users\yaros\source\repos\AntiService\AntiService\bin\Debug\AntiService.exe.
+Выполняется фиксация сборки 'C:\Users\yaros\source\repos\AntiService\AntiService\bin\Debug\AntiService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = C:\Users\yaros\source\repos\AntiService\AntiService\bin\Debug\AntiService.InstallLog
+   assemblypath = C:\Users\yaros\source\repos\AntiService\AntiService\bin\Debug\AntiService.exe
+Отсутствуют общие программы установки с атрибутом RunInstallerAttribute.Yes в сборке C:\Users\yaros\source\repos\AntiService\AntiService\bin\Debug\AntiService.exe.
+Удалите файл InstallState, поскольку отсутствуют программы установки.
+Выполняется установка сборки 'C:\Users\yaros\source\repos\AntiService\AntiService\bin\Debug\AntiService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = C:\Users\yaros\source\repos\AntiService\AntiService\bin\Debug\AntiService.InstallLog
+   assemblypath = C:\Users\yaros\source\repos\AntiService\AntiService\bin\Debug\AntiService.exe
+Устанавливается служба AntiService...
+Служба AntiService успешно установлена.
+Создается исходный EventLog AntiService в журнале Application...
+Выполняется фиксация сборки 'C:\Users\yaros\source\repos\AntiService\AntiService\bin\Debug\AntiService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = C:\Users\yaros\source\repos\AntiService\AntiService\bin\Debug\AntiService.InstallLog
+   assemblypath = C:\Users\yaros\source\repos\AntiService\AntiService\bin\Debug\AntiService.exe
