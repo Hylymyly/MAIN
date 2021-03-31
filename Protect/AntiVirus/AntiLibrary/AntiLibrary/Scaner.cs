@@ -15,6 +15,8 @@ namespace AntiLibrary
         static List<string> list2 = new List<string>();
         static List<string> list3 = new List<string>();
         public static List<string> list4 = new List<string>();
+        public static bool flagforprogress = true;
+        public static bool flagforprogress2 = true;
         public static bool ScanerFile(byte[] arrayofbyte)
         {
             SignatureFind();

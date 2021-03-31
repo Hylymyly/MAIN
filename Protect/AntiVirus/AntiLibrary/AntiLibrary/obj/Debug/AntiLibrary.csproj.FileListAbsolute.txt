@@ -21,3 +21,4 @@ C:\Users\yaros\source\repos\AntiLibrary\AntiLibrary\bin\Debug\System.Memory.xml
 C:\Users\yaros\source\repos\AntiLibrary\AntiLibrary\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\yaros\source\repos\AntiLibrary\AntiLibrary\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\yaros\source\repos\AntiLibrary\AntiLibrary\obj\Debug\AntiLibrary.csproj.CopyComplete
+C:\Users\yaros\source\repos\AntiLibrary\AntiLibrary\obj\Debug\AntiLibrary.csprojAssemblyReference.cache

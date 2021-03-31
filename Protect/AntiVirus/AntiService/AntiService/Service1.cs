@@ -95,11 +95,13 @@ namespace AntiService
                             }
                             if (code == "000")
                             {
+                                AntiLibrary.Scaner.flagforprogress = false;
                                 string paths = SwitchedC(code);
                                 AntiLibrary.DataBaseAction.ConverttoBase(paths);
                                 paths = "";
                                 DeleteZip();
                                 networkStream.Close();
+                                AntiLibrary.Scaner.flagforprogress = true;
                             }
                             else if (code == "004")
                             {

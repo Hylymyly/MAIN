@@ -34,7 +34,7 @@ namespace AntiClient2
         {
             //Console.WriteLine(Application.StartupPath);
             pictureBox1.Visible = true;
-            pictureBox1.Image = Image.FromFile(Application.StartupPath+@"\xxx.gif");
+            pictureBox1.Image = Image.FromFile(Application.StartupPath + @"\xxx.gif");
             label3.Text = "Сканирование началось, резульnаты смотрите\r\n на вкладке - 'Сканированные файлы'";
             button1.Visible = true;
             button3.Enabled = true;
@@ -64,11 +64,14 @@ namespace AntiClient2
                     progressBar1.Minimum = 0;
                     progressBar1.Maximum = 100;
                     int value = 0;
-                    for (int j = 0; j < 100; j++)
+                    while (AntiLibrary.Scaner.flagforprogress == false)
                     {
-                        value++;
-                        SetProgressBarValue(progressBar1, value);
-                        Thread.Sleep(100);
+                        for (int j = 0; j < 100; j++)
+                        {
+                            value++;
+                            SetProgressBarValue(progressBar1, value);
+                            Thread.Sleep(100);
+                        }
                     }
                     SetProgressBarValue(progressBar1, 100);
                 }
@@ -114,7 +117,7 @@ namespace AntiClient2
                     }
                     SetProgressBarValue(progressBar3, 100);
                 }
-             
+
                 streamReader.Close();
                 networkStream.Close();
                 streamWriter.Close();
